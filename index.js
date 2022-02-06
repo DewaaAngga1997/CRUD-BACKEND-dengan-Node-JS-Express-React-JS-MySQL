@@ -1,5 +1,6 @@
 import Express from 'express';
 import db from './config/database.js';
+import productRoutes from './routes/index.js';
 
 const app = Express();
 //1 tambahkan tipy modul
@@ -12,9 +13,7 @@ try {
 } catch (error) {
   console.error('Database Connection Error :', error);
 }
-
-app.get('/', (req, res) => {
-  res.send('Welcome');
-});
+//3 route pindah halaman
+app.use('/products', productRoutes);
 
 app.listen(5000, () => console.log('server running at port 5000'));
