@@ -10,6 +10,7 @@ export const getAllPoducts = async (req, res) => {
     res.json({ massage: error.massage });
   }
 };
+
 //create
 export const createPoduct = async (req, res) => {
   //menampilkan product ke web
@@ -20,6 +21,7 @@ export const createPoduct = async (req, res) => {
     res.json({ massage: error.massage });
   }
 };
+
 //select
 export const getPoductById = async (req, res) => {
   //menampilkan product ke web
@@ -34,6 +36,7 @@ export const getPoductById = async (req, res) => {
     res.json({ massage: error.massage });
   }
 };
+
 //update
 export const updateProduct = async (req, res) => {
   //menampilkan product ke web
@@ -44,6 +47,21 @@ export const updateProduct = async (req, res) => {
       },
     });
     res.json({ massage: 'Product Update' });
+  } catch (error) {
+    res.json({ massage: error.massage });
+  }
+};
+
+//delete
+export const deleteProduct = async (req, res) => {
+  //menampilkan product ke web
+  try {
+    await Product.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({ massage: 'Product Berhasil di Delete' });
   } catch (error) {
     res.json({ massage: error.massage });
   }
