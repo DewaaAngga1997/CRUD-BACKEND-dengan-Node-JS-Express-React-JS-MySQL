@@ -2,11 +2,13 @@ import Express from 'express';
 import db from './config/database.js';
 
 const app = Express();
-//KONEKSI DATABASE
-//jika berhasil
+//1 tambahkan tipy modul
+//2 KONEKSI DATABASE
+//jika berhasil maka
 try {
   await db.authenticate();
   console.log('Database Connected');
+  //jika tidak berasil maka
 } catch (error) {
   console.error('Database Connection Error :', error);
 }
