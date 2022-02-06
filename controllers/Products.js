@@ -10,3 +10,13 @@ export const getAllPoducts = async (req, res) => {
     res.json({ massage: error.massage });
   }
 };
+
+export const createPoduct = async (req, res) => {
+  //menampilkan product ke web
+  try {
+    await Product.create(req.body);
+    res.json({ massage: 'Product Created' });
+  } catch (error) {
+    res.json({ massage: error.massage });
+  }
+};
